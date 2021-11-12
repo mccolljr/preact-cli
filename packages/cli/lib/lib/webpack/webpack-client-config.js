@@ -163,8 +163,8 @@ function getBabelEsmPlugin(config) {
 					: '[name].esm.js',
 				chunkFilename: '[name].chunk.[chunkhash:5].esm.js',
 				excludedPlugins: ['BabelEsmPlugin', 'InjectManifest'],
-				beforeStartExecution: (plugins) => {
-					plugins.forEach((plugin) => {
+				beforeStartExecution: plugins => {
+					plugins.forEach(plugin => {
 						if (
 							plugin.constructor.name === 'DefinePlugin' &&
 							plugin.definitions
@@ -252,7 +252,7 @@ function isProd(config) {
 				preload: 'media',
 				pruneSource: false,
 				logLevel: 'silent',
-				additionalStylesheets: ['*.css'],
+				additionalStylesheets: ['route-*.css'],
 			})
 		);
 	}
